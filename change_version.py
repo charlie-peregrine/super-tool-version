@@ -2,6 +2,7 @@
 
 import re
 from os import replace as osreplace
+import time
 
 with open("SUPERTOOLVERSION", 'r') as f:
     lines = f.read().split('\n')
@@ -16,6 +17,9 @@ if m:
     with open("SUPERTOOLVERSION2", 'w') as f:
         f.write("\n".join([new_version] + lines[1:]))
     osreplace("SUPERTOOLVERSION2", "SUPERTOOLVERSION")
+    print("Version Changed!")
 else:
-    print("Version Change Failed")
+    print("Version Change Failed!")
+
+time.sleep(3)
 
